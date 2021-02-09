@@ -23,7 +23,7 @@ jobs:
     - name: Publish to Github Packages Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: wellingtonsilverio/nextjs-node-digitalocean/Dockerfile
+        name: wellingtonsilverio/nextjs-node-digitalocean/frontend
         registry: docker.pkg.github.com
         username: ${{ secrets.USERNAME_GITHUB }}
         password: ${{ secrets.GITHUB_TOKEN }}
@@ -44,5 +44,5 @@ jobs:
         script: |
           docker stop $(docker ps -a -q)
           docker login docker.pkg.github.com -u $GITHUB_USERNAME -p $GITHUB_TOKEN
-          docker pull docker.pkg.github.com/wellingtonsilverio/nextjs-node-digitalocean/Dockerfile:latest
-          docker run -dit -p 80:80 docker.pkg.github.com/wellingtonsilverio/nextjs-node-digitalocean/Dockerfile:latest
+          docker pull docker.pkg.github.com/wellingtonsilverio/nextjs-node-digitalocean/frontend:latest
+          docker run -dit -p 80:80 docker.pkg.github.com/wellingtonsilverio/nextjs-node-digitalocean/frontend:latest
