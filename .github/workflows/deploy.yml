@@ -20,15 +20,15 @@ jobs:
     #     yarn test
     #   env:
     #     CI: true
-    - name: Publish to Github Packages Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: wellingtonsilverio/nextjs-node-digitalocean/Dockerfile
-        registry: docker.pkg.github.com
-        username: ${{ secrets.USERNAME_GITHUB }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-        dockerfile: Dockerfile-prod
-        tags: latest
+    # - name: Publish to Github Packages Registry
+    #   uses: elgohr/Publish-Docker-Github-Action@master
+    #   with:
+    #     name: wellingtonsilverio/nextjs-node-digitalocean/Dockerfile
+    #     registry: docker.pkg.github.com
+    #     username: ${{ secrets.USERNAME_GITHUB }}
+    #     password: ${{ secrets.GITHUB_TOKEN }}
+    #     dockerfile: Dockerfile-prod
+    #     tags: latest
     - name: Deploy package to digitalocean
       uses: appleboy/ssh-action@master
       env:
